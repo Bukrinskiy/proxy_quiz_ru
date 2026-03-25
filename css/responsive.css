@@ -32,26 +32,10 @@
     min-height: 340px;
   }
 
-  .left-stack {
-    width: 54%;
-    top: 10px;
-    gap: 10px;
+  .hero__image {
+    width: min(100%, 560px);
   }
 
-  .bar {
-    padding: 8px 10px;
-    font-size: clamp(11px, 2.3vw, 20px);
-  }
-
-  .card {
-    top: 28px;
-    width: min(78%, 500px);
-  }
-
-  .card__list li {
-    font-size: clamp(13px, 2.4vw, 24px);
-    padding: 9px 0;
-  }
 }
 
 @media (max-width: 640px) {
@@ -77,22 +61,8 @@
     min-height: 270px;
   }
 
-  .left-stack {
-    width: 52%;
-    gap: 7px;
+  .hero__image {
+    width: min(100%, 480px);
   }
 
-  .card {
-    width: 76%;
-    border-radius: 12px;
-  }
-
-  .card__list {
-    padding: 10px 12px;
-  }
-
-  .card__list li {
-    font-size: 12px;
-    padding: 6px 0;
-  }
 }
