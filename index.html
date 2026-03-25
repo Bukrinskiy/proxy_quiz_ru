@@ -7,7 +7,7 @@
   <meta name="description" content="Быстрый подбор прокси по гео, типу, оплате и цене." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
@@ -15,17 +15,19 @@
   <main class="hero-page">
     <section class="hero container" aria-label="Первый экран">
       <div class="hero__visual" aria-hidden="true">
-        <img class="hero__image" src="image/left-hero.png" alt="" />
+        <div class="hero__media">
+          <img class="hero__image" src="image/left-hero.png" alt="" />
+        </div>
       </div>
 
       <div class="hero__content">
-        <h1>Не тратьте время на перебор<br />прокси-сервисов вручную</h1>
-        <p>
+        <h1 class="hero__title">Не тратьте время на перебор<br />прокси-сервисов вручную</h1>
+        <p class="hero__subtitle">
           За несколько кликов покажем, где искать нужные прокси под вашу задачу —
           по гео, типу, оплате и цене.
         </p>
-        <a class="cta" href="quiz.html" id="pick-proxy-btn">Подобрать прокси</a>
-        <div class="hero__meta">Без пустых регистраций • Быстрый результат • Актуальные офферы</div>
+        <a class="cta hero__cta" href="quiz.html" id="pick-proxy-btn">Подобрать прокси</a>
+        <div class="hero__meta hero__microtrust">Без пустых регистраций • Быстрый результат • Актуальные офферы</div>
       </div>
     </section>
   </main>

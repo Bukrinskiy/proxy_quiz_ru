@@ -1,39 +1,42 @@
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 26px;
+    gap: 28px;
+    padding: 30px 0 26px;
   }
 
   .hero__content {
     order: -1;
+    max-width: 100%;
   }
 
-  .hero__content h1 {
-    font-size: clamp(32px, 5.6vw, 52px);
+  .hero__title {
+    font-size: clamp(46px, 7vw, 56px);
   }
 
-  .hero__content p {
-    margin: 16px 0 22px;
-    font-size: clamp(18px, 3.8vw, 31px);
+  .hero__subtitle {
+    margin: 22px 0 32px;
+    font-size: clamp(24px, 4.1vw, 27px);
   }
 
   .cta {
     width: 100%;
-    min-height: 62px;
-    font-size: clamp(28px, 5.2vw, 44px);
+    min-height: 80px;
+    font-size: clamp(24px, 4.5vw, 28px);
   }
 
   .hero__meta {
-    margin-top: 14px;
-    font-size: clamp(15px, 2.8vw, 24px);
+    margin-top: 18px;
+    font-size: clamp(17px, 2.6vw, 19px);
   }
 
   .hero__visual {
-    min-height: 340px;
+    min-height: 320px;
   }
 
-  .hero__image {
-    width: min(100%, 560px);
+  .hero__media {
+    width: min(100%, 620px);
+    padding: 16px;
   }
 
 }
@@ -44,25 +47,40 @@
   }
 
   .hero {
-    padding: 18px 0 26px;
-    gap: 20px;
+    padding: 18px 0 24px;
+    gap: 18px;
   }
 
-  .hero__content h1 {
-    font-size: 34px;
+  .hero__title {
+    font-size: clamp(42px, 11vw, 48px);
+    line-height: 0.98;
   }
 
-  .hero__content p {
-    font-size: 19px;
-    margin-bottom: 18px;
+  .hero__subtitle {
+    font-size: clamp(22px, 6vw, 24px);
+    margin: 18px 0 24px;
+    line-height: 1.38;
+  }
+
+  .cta {
+    min-height: 72px;
+    font-size: clamp(22px, 6vw, 24px);
+    border-radius: 20px;
+  }
+
+  .hero__meta {
+    font-size: clamp(16px, 4.2vw, 18px);
+    margin-top: 16px;
   }
 
   .hero__visual {
-    min-height: 270px;
+    min-height: 230px;
   }
 
-  .hero__image {
-    width: min(100%, 480px);
+  .hero__media {
+    width: min(100%, 500px);
+    padding: 12px;
+    border-radius: 28px;
   }
 
 }
