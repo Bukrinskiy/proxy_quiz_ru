@@ -136,15 +136,12 @@ const step5View = document.getElementById('step5-view');
 const analysisView = document.getElementById('analysis-view');
 const resultView = document.getElementById('result-view');
 const analysisSummary = document.getElementById('analysis-summary');
-const resultSummary = document.getElementById('result-summary');
 const analysisStatusText = document.getElementById('analysis-status-text');
 const analysisProgressFill = document.getElementById('analysis-progress-fill');
 const analysisProgressValue = document.getElementById('analysis-progress-value');
 const mainOfferCard = document.getElementById('main-offer-card');
-const extraOffersGrid = document.getElementById('extra-offers-grid');
 
 let analysisTimer = null;
-let selectedOffers = null;
 
 function getCurrentStepConfig() {
   return steps[state.currentStep - 1];
@@ -281,7 +278,7 @@ function scoreOffer(offer, answers) {
   return score;
 }
 
-function selectOffers() {
+function selectBestOffer() {
   const answers = {
     task: state.selectedTask,
     geo: state.selectedGeo,
@@ -291,41 +288,36 @@ function selectOffers() {
     geoIsCustom: state.selectedGeo === 'Другое' && !!state.customGeo.trim(),
   };
 
-  const scored = offers
+  const mandatoryMatches = offers.filter((offer) => {
+    const taskMatched = offer.taskFit.includes(answers.task) || answers.taskIsCustom || offer.taskFit.includes('Другое');
+    const geoMatched = offer.geo.includes(answers.geo) || answers.geoIsCustom;
+    const paymentMatched = offer.payment.includes(answers.payment) || answers.payment === 'Неважно';
+    return taskMatched && geoMatched && paymentMatched;
+  });
+
+  const candidates = mandatoryMatches.length > 0 ? mandatoryMatches : offers;
+
+  const scored = candidates
     .map((offer) => ({ ...offer, matchScore: scoreOffer(offer, answers) }))
     .sort((a, b) => b.matchScore - a.matchScore);
 
-  return {
-    main: scored[0],
-    extra: scored.slice(1, 3),
-  };
+  return scored[0];
 }
 
-function renderOfferCard(offer, variant = 'primary') {
-  if (variant === 'primary') {
-    return `
-      <span class="offer-label">Лучший вариант</span>
-      <h2 class="offer-title">${offer.name}</h2>
-      <p class="offer-description">${offer.description}</p>
-      <div class="offer-meta">
-        <p><strong>Гео:</strong> ${offer.geo.join(', ')}</p>
-        <p><strong>Тип:</strong> ${offer.type}</p>
-        <p><strong>Оплата:</strong> ${offer.payment.join(', ')}</p>
-        <p><strong>Цена:</strong> ${offer.price}</p>
-        <p><strong>Промокод:</strong> ${offer.promo}</p>
-      </div>
-      <p class="offer-reason">${offer.reason}</p>
-      <a class="btn btn--primary offer-cta" href="${offer.url}">Перейти к офферу</a>
-    `;
-  }
-
+function renderOfferCard(offer) {
   return `
-    <span class="offer-tag">${variant === 'cheap' ? 'Дешевле' : 'Альтернатива'}</span>
-    <h3 class="offer-title">${offer.name}</h3>
+    <span class="offer-label">Лучший вариант</span>
+    <h2 class="offer-title">${offer.name}</h2>
     <p class="offer-description">${offer.description}</p>
-    <p><strong>Цена:</strong> ${offer.price}</p>
-    <p><strong>Промокод:</strong> ${offer.promo}</p>
-    <a class="btn btn--secondary offer-cta" href="${offer.url}">Открыть</a>
+    <div class="offer-meta">
+      <p><strong>Гео:</strong> ${offer.geo.join(', ')}</p>
+      <p><strong>Тип:</strong> ${offer.type}</p>
+      <p><strong>Оплата:</strong> ${offer.payment.join(', ')}</p>
+      <p><strong>Цена:</strong> ${offer.price}</p>
+      <p><strong>Промокод:</strong> ${offer.promo}</p>
+    </div>
+    <p class="offer-reason"><strong>Почему подходит:</strong> ${offer.reason}</p>
+    <a class="btn btn--primary offer-cta" href="${offer.url}">Перейти к офферу</a>
   `;
 }
 
@@ -333,17 +325,9 @@ function startAnalysisAndShowResult() {
   clearInterval(analysisTimer);
 
   renderSummary(analysisSummary);
-  renderSummary(resultSummary);
 
-  selectedOffers = selectOffers();
-  mainOfferCard.innerHTML = renderOfferCard(selectedOffers.main, 'primary');
-
-  extraOffersGrid.innerHTML = selectedOffers.extra
-    .map((offer, index) => {
-      const type = index === 0 ? 'cheap' : 'alt';
-      return `<article class="offer-card offer-card--secondary">${renderOfferCard(offer, type)}</article>`;
-    })
-    .join('');
+  const bestOffer = selectBestOffer();
+  mainOfferCard.innerHTML = renderOfferCard(bestOffer);
 
   analysisView.hidden = false;
   resultView.hidden = true;
