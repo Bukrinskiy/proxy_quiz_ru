@@ -1,0 +1,98 @@
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .hero__content {
+    order: -1;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(32px, 5.6vw, 52px);
+  }
+
+  .hero__content p {
+    margin: 16px 0 22px;
+    font-size: clamp(18px, 3.8vw, 31px);
+  }
+
+  .cta {
+    width: 100%;
+    min-height: 62px;
+    font-size: clamp(28px, 5.2vw, 44px);
+  }
+
+  .hero__meta {
+    margin-top: 14px;
+    font-size: clamp(15px, 2.8vw, 24px);
+  }
+
+  .hero__visual {
+    min-height: 340px;
+  }
+
+  .left-stack {
+    width: 54%;
+    top: 10px;
+    gap: 10px;
+  }
+
+  .bar {
+    padding: 8px 10px;
+    font-size: clamp(11px, 2.3vw, 20px);
+  }
+
+  .card {
+    top: 28px;
+    width: min(78%, 500px);
+  }
+
+  .card__list li {
+    font-size: clamp(13px, 2.4vw, 24px);
+    padding: 9px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .hero {
+    padding: 18px 0 26px;
+    gap: 20px;
+  }
+
+  .hero__content h1 {
+    font-size: 34px;
+  }
+
+  .hero__content p {
+    font-size: 19px;
+    margin-bottom: 18px;
+  }
+
+  .hero__visual {
+    min-height: 270px;
+  }
+
+  .left-stack {
+    width: 52%;
+    gap: 7px;
+  }
+
+  .card {
+    width: 76%;
+    border-radius: 12px;
+  }
+
+  .card__list {
+    padding: 10px 12px;
+  }
+
+  .card__list li {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+}
