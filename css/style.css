@@ -35,12 +35,21 @@ body {
 .hero {
   display: grid;
   grid-template-columns: 1.04fr 1fr;
+  grid-template-areas:
+    'visual headline'
+    'visual content'
+    'visual meta';
   gap: 64px;
   align-items: center;
   padding: 48px 0;
 }
 
+.hero__headline {
+  grid-area: headline;
+}
+
 .hero__visual {
+  grid-area: visual;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,6 +99,7 @@ body {
 }
 
 .hero__content {
+  grid-area: content;
   max-width: 640px;
 }
 
@@ -140,7 +150,9 @@ body {
 }
 
 .hero__meta {
+  grid-area: meta;
   margin-top: 24px;
+  max-width: 640px;
   color: var(--microtrust);
   font-size: 19px;
   font-weight: 500;

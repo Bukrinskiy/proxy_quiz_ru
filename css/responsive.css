@@ -1,12 +1,18 @@
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      'headline'
+      'visual'
+      'content'
+      'meta';
     gap: 28px;
     padding: 30px 0 26px;
   }
 
-  .hero__content {
-    order: -1;
+  .hero__headline,
+  .hero__content,
+  .hero__meta {
     max-width: 100%;
   }
 
