@@ -39,7 +39,8 @@ body {
     'visual headline'
     'visual content'
     'visual meta';
-  gap: 64px;
+  column-gap: 64px;
+  row-gap: 34px;
   align-items: center;
   padding: 48px 0;
 }
@@ -113,7 +114,7 @@ body {
 }
 
 .hero__subtitle {
-  margin: 28px 0 40px;
+  margin: 20px 0 28px;
   color: var(--text-sub);
   font-weight: 500;
   font-size: 25px;
@@ -151,7 +152,7 @@ body {
 
 .hero__meta {
   grid-area: meta;
-  margin-top: 24px;
+  margin-top: 10px;
   max-width: 640px;
   color: var(--microtrust);
   font-size: 18px;
