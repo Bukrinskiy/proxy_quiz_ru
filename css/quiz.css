@@ -1,5 +1,5 @@
 :root {
-  --bg: #f3f6fb;
+  --bg: #f5f8fd;
   --card-bg: #ffffff;
   --card-border: #e4e9f3;
   --text: #111827;
@@ -18,7 +18,10 @@
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
-  background: var(--bg);
+  background:
+    radial-gradient(95% 75% at 12% 18%, rgba(206, 225, 247, 0.72) 0%, rgba(206, 225, 247, 0) 62%),
+    radial-gradient(88% 68% at 82% 72%, rgba(222, 236, 253, 0.6) 0%, rgba(222, 236, 253, 0) 67%),
+    linear-gradient(160deg, #f8fbff 0%, #eff4fb 48%, var(--bg) 100%);
   color: var(--text);
 }
 
