@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proxy Quiz Flow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+  <main class="quiz-page">
+    <section class="quiz-card" aria-label="Квиз по подбору прокси">
+      <div class="quiz-progress">
+        <div class="quiz-progress__bar">
+          <div class="quiz-progress__fill" id="progress-fill"></div>
+        </div>
+        <p class="quiz-progress__text" id="progress-text">1/4</p>
+      </div>
+
+      <div class="quiz-content">
+        <h1 class="quiz-title" id="question-title"></h1>
+        <div class="quiz-options" id="options-container"></div>
+
+        <div class="quiz-input-wrap" id="custom-input-wrap" hidden>
+          <input
+            type="text"
+            class="quiz-input"
+            id="custom-input"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <div class="quiz-actions">
+        <button type="button" class="btn btn--secondary" id="back-btn">Назад</button>
+        <button type="button" class="btn btn--primary" id="next-btn" disabled>Далее</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
