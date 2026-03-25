@@ -12,14 +12,14 @@
 <body>
   <main class="quiz-page">
     <section class="quiz-card" aria-label="Квиз по подбору прокси">
-      <div class="quiz-progress">
+      <div class="quiz-progress" id="quiz-progress-wrap">
         <div class="quiz-progress__bar">
           <div class="quiz-progress__fill" id="progress-fill"></div>
         </div>
         <p class="quiz-progress__text" id="progress-text">1/4</p>
       </div>
 
-      <div class="quiz-content">
+      <div class="quiz-content" id="quiz-questions-view">
         <h1 class="quiz-title" id="question-title"></h1>
         <div class="quiz-options" id="options-container"></div>
 
@@ -32,6 +32,34 @@
           />
         </div>
       </div>
+
+      <section class="quiz-step5" id="step5-view" hidden>
+        <div class="analysis-view" id="analysis-view">
+          <h1 class="quiz-title">Подбираем лучшие прокси под ваш запрос</h1>
+          <p class="quiz-subtitle">Сравниваем предложения по цене, гео, доступности и способу оплаты</p>
+
+          <div class="answer-summary" id="analysis-summary"></div>
+
+          <div class="analysis-status-wrap">
+            <p class="analysis-status" id="analysis-status-text">Анализируем доступные предложения</p>
+            <div class="analysis-progress">
+              <div class="analysis-progress__fill" id="analysis-progress-fill"></div>
+            </div>
+            <p class="analysis-progress__value" id="analysis-progress-value">0%</p>
+          </div>
+        </div>
+
+        <div class="result-view" id="result-view" hidden>
+          <h1 class="quiz-title">Подходящий вариант найден</h1>
+          <p class="quiz-subtitle">Мы подобрали оффер на основе ваших ответов</p>
+
+          <div class="answer-summary" id="result-summary"></div>
+
+          <article class="offer-card offer-card--primary" id="main-offer-card"></article>
+
+          <div class="offer-grid" id="extra-offers-grid"></div>
+        </div>
+      </section>
 
       <div class="quiz-actions">
         <button type="button" class="btn btn--secondary" id="back-btn">Назад</button>
